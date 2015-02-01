@@ -16,7 +16,7 @@ for file in $(find $SRC -name '*.jpg' -o -name '*.JPG' | sort)
 	DAY=$(exiftool -DateTimeOriginal "$file"  | cut -d: -f2- | cut -d " " -f2 | cut -d: -f3)
 	#$(exiv2 pr "$file" | grep timestamp | cut -d " " -f 4 | cut -d: -f3)
 	DATE="$YEAR-$MONTH-$DAY"
-	if ! [ $DATE = "--" ]
+	if ![ $DATE = "--" ]
 	then
 		echo "$DATE/$(basename $file)"
 		IMPORTED=$(($IMPORTED+1))
